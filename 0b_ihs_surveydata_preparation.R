@@ -1,4 +1,14 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 # 0b - Extract variables from household and community EA data; harmonize across waves
+
+# DATA: 
+# Malawi's IHS on the World Bank's Microdata Library:
+# https://microdata.worldbank.org/catalog/2307
+# https://microdata.worldbank.org/catalog/1003
+# https://microdata.worldbank.org/catalog/2936
+# https://microdata.worldbank.org/catalog/3818
 
 library(tidyverse)
 library(readstata13)

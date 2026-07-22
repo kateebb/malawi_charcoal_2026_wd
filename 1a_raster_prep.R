@@ -1,3 +1,6 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 # 1a - Data preparation script: Forest loss measures
   ## Forest cover and loss data: GFCD v1.9
   ## https://glad.earthengine.app/view/global-forest-change
@@ -5,13 +8,13 @@
 # Step 1 - stitch and reproject rasters from GFCD v1.9 -----------------------------------------------------------------
   # Summary:
     # Rasters should be one contiguous data file
-    # Use raster calculatoins to create binary surface of forest cover lost in each set of IHS years
+    # Use raster calculations to create binary surface of forest cover lost in each set of IHS years
 
     
 library(sf)
 library(terra)
 
-# (1a) Load data [publicly available -- cannot redistribute to third parties]
+# (1a) Load data 
 loss1 <- rast("data/Hansen_GFC-2021-v1.9_lossyear_00N_030E.tif")
 loss2 <- rast("data/Hansen_GFC-2021-v1.9_lossyear_10S_030E.tif")
 mask1 <- rast("data/Hansen_GFC-2021-v1.9_datamask_00N_030E.tif")

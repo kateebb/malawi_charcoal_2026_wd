@@ -1,6 +1,8 @@
-# 2 - Finalize analytical dataset for IHS: 
-  # Geovariables: tree cover, forest loss, population density
-    # 10 kilometer buffer areas 
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
+# 2 - Finalize analytic dataset for IHS: 
+  # Geovariables: tree cover, forest loss, population density (10 kilometer buffer areas)
   # Community level variables from step 0b
   # Proximity to PA's 
   # Transform relevant variables for modeling
@@ -12,11 +14,11 @@ library(sf)
 select <- dplyr::select
 
 # Step 1 - Load household data and reduce to lat/lon + wave values; Fix issues with missing lat/lon ------
-## Fix lat/lon issues --
+## Fix the following lat/lon issues --
   ## 1. IHS2 households -- merge lat/lon from community vars [FIXED]
   ## 2. 9 EAs from IHS5 that have 0 as coordinates -- can match from IHS5? [FIXED]
   ## 3. 11 households from IHS4 & IHS5 without coords [FIXED]
-  ## 4. 112 households from IHS5 with 0 as coords, across 7 EAs [unable to fix, exclude from analysis]
+  ## 4. 112 households from IHS5 with 0 as coords, across 7 EAs [unable to fix, excluded from analysis]
 
 hh0 <- read_rds("processed/ihs2345_hh_analytical.rds") %>%
   select(case_id,wave,lat,lon,ea,id=instanceid) 
@@ -272,7 +274,7 @@ hh3 <- hh3 %>%
          pa10km_key,
          wave)
   
-    # ## Check: missing data?
+    # ## Check: is there missing data?
     # ea <- hh3 %>% select(wave,ea_id) %>% unique()
     # ## 6 EAs in IHS2 without road distance data; 1 in IHS3
     # x1 <- hh3 %>% filter(is.na(log_roaddist))

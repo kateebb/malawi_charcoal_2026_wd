@@ -1,3 +1,6 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 ## 3b - Descriptive tables
 
 library(tidyverse)
@@ -74,7 +77,8 @@ write_csv(hh2,"outputs/table1_2.csv")
 write_csv(ea,"outputs/table2.csv")
 
 ## Test for trends in variables -- get linear coefficient
-# https://library.virginia.edu/data/articles/understanding-ordered-factors-in-a-linear-model
+
+# Tukey's fences outlier identification function:
 outlier <- function(x){
   q1 <- quantile(x,0.25,na.rm=T)
   q3 <- quantile(x,0.75,na.rm=T)

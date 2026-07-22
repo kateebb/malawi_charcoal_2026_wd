@@ -1,3 +1,6 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 ## 5 - Geographic anlaysis of random effects 
   ## [Create Figure A1]
 

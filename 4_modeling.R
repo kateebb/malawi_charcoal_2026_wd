@@ -1,3 +1,6 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 # 4 - Modeling household fuel choices
   # [Create Figures 4 & 5] 
   # [Create Tables A3 & A4]
@@ -15,13 +18,15 @@ library(ggthemes)
 rename <- dplyr::rename
 select <- dplyr::select
 
+
+## MODEL NAMES: *signifies primary model presented in manuscript text
 # PRIMARY FUEL
-  ## m1 (m1) Model with {near key protected areas} term
+  ## m1 (m1) Model with {near key protected areas} term*
   ## m1a (m2) Model without {near protected areas} term
   ## m1b (m3) Model with {near any protected areas} term
 
-# SUPP FUEL
-  ## m2 (m4) Model with {near key protected areas} term
+# CHARCOAL PRIMARY/SUPPLEMENTARY FUEL
+  ## m2 (m4) Model with {near key protected areas} term*
   ## m2a (m5) Model without {near protected areas} term
   ## m2b (m6) Model with {near any protected areas} term
 
@@ -30,7 +35,7 @@ d <- read_rds("analytical_datasets/household_fuelchoice_ihs2345.rds") %>%
   mutate(region = factor(region,
                          levels = c("Centre","North","South")))
 
-## Function to test for outliers (robustness checks) ----
+## Tukey's fences outlier identification function: ----
 outlier <- function(x){
   q1 <- quantile(x,0.25,na.rm=T)
   q3 <- quantile(x,0.75,na.rm=T)
@@ -466,7 +471,7 @@ re <- m3$random.effects[[1]] %>% unlist() %>%
 
 write_rds(re,"analytical_datasets/raneffects_pfmod.rds")
 
-# 2. Model 2: Charcoal use ----------
+# 2. Model 2: Charcoal use (primary/supplementary/none) ----------
 d$purch_charc_cat <- factor(d$purch_charc_cat)
 
 ## M2: [Main model] Charcoal use, key PAs ----------

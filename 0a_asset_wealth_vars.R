@@ -1,18 +1,29 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 ## 0a - Household asset and wealth variable preparation
 
+# SUMMARY & NOTES: 
 # Inconsistent measurement of assets across 4 IHS waves (main difference in IHS2)
 # Harmonize assets and their values 
   # Impute values for assets in IHS2 that do not have MWK vals from IHS2 -------
   # Use inflation adjusted MWK (2010 is index)
 # Adjust for inflation for all waves 
+  ## Adjust for CPI based on World Bank data [accessed January 14, 2025]
+  ## https://data.worldbank.org/indicator/FP.CPI.TOTL?end=2023&locations=MW&start=1981&view=chart
+  ## CPI 2010 = 100
+  ## IHS2, 2004: 55.6247640619101
+  ## IHS3, 2010: 100.00
+  ## IHS4, 2016: 305.0311745
+  ## IHS5, 2019: 418.3443255
+  
+# DATA: 
+  # Malawi's IHS on the World Bank's Microdata Library:
+  # https://microdata.worldbank.org/catalog/2307
+  # https://microdata.worldbank.org/catalog/1003
+  # https://microdata.worldbank.org/catalog/2936
+  # https://microdata.worldbank.org/catalog/3818
 
-## Adjust for CPI based on World Bank data [accessed January 14, 2025]
-## https://data.worldbank.org/indicator/FP.CPI.TOTL?end=2023&locations=MW&start=1981&view=chart
-## CPI 2010 = 100
-## IHS2, 2004: 55.6247640619101
-## IHS3, 2010: 100.00
-## IHS4, 2016: 305.0311745
-## IHS5, 2019: 418.3443255
 
 library(tidyverse)
 library(readstata13)
@@ -148,6 +159,7 @@ tapply(a$assets, a$wave, summary)
 write_rds(a,"processed/assets_infladj.rds")
 
 
+## ASSETS COUNTED:
 # mortar/pestle (mtondo), bed, table, chair, fan, air conditioner, radio ('wireless'), tape, CD/DVD player, HiFi     
 # television, VCR, sewing machine, kerosene/paraffin stove, electric or gas stove, hot plate, refrigerator                    
 # washing machine, bicycle, motorcycle/scooter, car, mini-bus, lorry                           

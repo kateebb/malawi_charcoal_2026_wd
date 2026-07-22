@@ -1,3 +1,6 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 ## 1b - Extract geographic variables (forest cover, forest loss, pop density) for EAs
 
 library(sf)

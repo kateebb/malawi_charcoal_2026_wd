@@ -1,3 +1,6 @@
+# Replication package for: 
+  # Beach et al., 2026 - "Do coupled population, economic, and land use dynamics explain household energy transitions in Malawi?" [World Development]
+
 ## 3a - Descriptive plots [Figures 2 and 3]
   ## Population estimates of fuel use [Table A2]
 
@@ -11,7 +14,7 @@ library(readxl)
 library(openxlsx)
 
 a3 <- read_rds("analytical_datasets/ihs_hh_full.rds") %>%
-  filter(!is.na(fuel_cook)) %>% ## remove 33 for NA vals
+  filter(!is.na(fuel_cook)) %>% 
   mutate(wave_yr = factor(wave,
                           levels = c("IHS2","IHS3","IHS4","IHS5"),
                           labels = c("2004-05","2010-11","2016-17","2019-20"),
